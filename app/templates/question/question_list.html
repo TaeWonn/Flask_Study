@@ -1,9 +1,18 @@
 {% if question_list %}
     <ul>
     {% for question in question_list %}
-        <li><a href="/detail/{{ question.id }}">{{ question.subject }}</a></li>
+        <li><a href="{{ url_for('question.detail', question_id=question.id) }}">{{ question.subject }}</a></li>
     {% endfor %}
     </ul>
 {% else%}
     <p>질문이 없습니다.</p>
 {% endif %}
+
+<!--
+loop 속성	설명
+loop.index	반복 순서, 1부터 1씩 증가
+loop.index0	반복 순서, 0부터 1씩 증가
+loop.first	반복 순서가 첫 번째 순서이면 True 아니면 False
+loop.last	반복 순서가 마지막 순서이면 True 아니면 False
+
+-->
